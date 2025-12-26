@@ -274,16 +274,16 @@ bool WindowManager::IsFocused() {
 }
 
 void WindowManager::Show() {
-  // HWND hWnd = GetMainWindow();
-  // DWORD gwlStyle = GetWindowLong(hWnd, GWL_STYLE);
-  // gwlStyle = gwlStyle | WS_VISIBLE;
-  // if ((gwlStyle & WS_VISIBLE) == 0) {
-  //   SetWindowLong(hWnd, GWL_STYLE, gwlStyle);
-  //   ::SetWindowPos(hWnd, HWND_TOP, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
-  // }
+  HWND hWnd = GetMainWindow();
+  DWORD gwlStyle = GetWindowLong(hWnd, GWL_STYLE);
+  gwlStyle = gwlStyle | WS_VISIBLE;
+  if ((gwlStyle & WS_VISIBLE) == 0) {
+    SetWindowLong(hWnd, GWL_STYLE, gwlStyle);
+    ::SetWindowPos(hWnd, HWND_TOP, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
+  }
 
-  // ShowWindowAsync(GetMainWindow(), SW_SHOW);
-  // SetForegroundWindow(GetMainWindow());
+  ShowWindowAsync(GetMainWindow(), SW_SHOW);
+  SetForegroundWindow(GetMainWindow());
 
   ShowWindow(GetMainWindow(), SW_SHOW);
 }
