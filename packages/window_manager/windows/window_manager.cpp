@@ -284,8 +284,6 @@ void WindowManager::Show() {
 
   ShowWindowAsync(GetMainWindow(), SW_SHOW);
   SetForegroundWindow(GetMainWindow());
-
-  ShowWindow(GetMainWindow(), SW_SHOW);
 }
 
 void WindowManager::Hide() {
